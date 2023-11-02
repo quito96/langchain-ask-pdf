@@ -16,7 +16,7 @@ def main():
     load_dotenv()
     st.set_page_config(page_title="Ask your PDF")
     st.header("Ask your PDF 💬 ")
-    st.write("Attention: Use of confidential PDFs is prohibited!")
+    st.write("⚠️ Attention: Use of confidential PDFs is prohibited!⚠️")
 
     # upload file
     pdf = st.file_uploader("Upload PDF", type="pdf")
