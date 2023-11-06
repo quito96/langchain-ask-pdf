@@ -45,7 +45,7 @@ def main():
                 start_time = time.time()
                 docs = knowledge_base.similarity_search(user_question)
 
-                llm = ChatOpenAI(model_name="gpt-3.5-turbo")
+                llm = ChatOpenAI(model_name="gpt-4", temperature=0.6)
                 chain = load_qa_chain(llm, chain_type="refine")
                 with get_openai_callback() as cb:
                     response = chain.run(input_documents=docs, question=user_question)
