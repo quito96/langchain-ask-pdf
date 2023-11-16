@@ -7,7 +7,7 @@ from langchain.text_splitter import CharacterTextSplitter
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.vectorstores import FAISS
 from langchain.chains.question_answering import load_qa_chain
-from langchain.llms import OpenAI
+import datetime
 from langchain.callbacks import get_openai_callback
 from langchain.chat_models import ChatOpenAI
 
@@ -49,7 +49,11 @@ def main():
                 chain = load_qa_chain(llm, chain_type="refine")
                 with get_openai_callback() as cb:
                     response = chain.run(input_documents=docs, question=user_question)
+                    current_date_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
+                    print('_________________________________________________________')
+                    print(current_date_time)
                     print(cb)
+                    print('_________________________________________________________')
 
                 response_time = time.time() - start_time
                 time_output = "<div style='color:green;'>Response Time: {:.1f} Seconds</div>".format(
