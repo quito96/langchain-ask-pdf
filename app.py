@@ -1,4 +1,4 @@
-# streamlit run app.py --server.port 8089
+# streamlit run app.py
 import time
 from dotenv import load_dotenv
 import streamlit as st
@@ -10,6 +10,8 @@ from langchain.chains.question_answering import load_qa_chain
 import datetime
 from langchain.callbacks import get_openai_callback
 from langchain.chat_models import ChatOpenAI
+import os
+import sys
 
 
 def main():
